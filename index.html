@@ -11,70 +11,57 @@
 
     <!-- HEADER -->
     <header>
-        <div class="logo">🍽️</div>
-        <div>
-            <h1>KANTIN MERDEKA</h1>
-            <p>Aplikasi Kasir Kantin Sekolah</p>
-        </div>
+        <h1>🍽️ KANTIN MERDEKA</h1>
+        <p>Aplikasi Kasir Kantin Sekolah</p>
     </header>
 
+    <div class="container">
 
-    <main class="container">
-
-        <!-- DAFTAR MENU -->
+        <!-- MENU -->
         <section class="menu-section">
-            <div class="section-title">
-                <h2>📋 Daftar Menu</h2>
-                <p>Pilih makanan atau minuman yang ingin dibeli</p>
-            </div>
+            <h2>📋 DAFTAR MENU</h2>
 
             <div class="menu-grid">
 
                 <div class="menu-card">
-                    <div class="icon">🍛</div>
+                    <div class="emoji">🍛</div>
                     <h3>Nasi Goreng</h3>
-                    <p class="harga">Rp 12.000</p>
-                    <label>Jumlah</label>
+                    <p>Rp 12.000</p>
                     <input type="number" id="nasiGoreng" min="0" value="0">
                 </div>
 
                 <div class="menu-card">
-                    <div class="icon">🍜</div>
+                    <div class="emoji">🍜</div>
                     <h3>Mie Goreng</h3>
-                    <p class="harga">Rp 10.000</p>
-                    <label>Jumlah</label>
+                    <p>Rp 10.000</p>
                     <input type="number" id="mieGoreng" min="0" value="0">
                 </div>
 
                 <div class="menu-card">
-                    <div class="icon">🍗</div>
+                    <div class="emoji">🍗</div>
                     <h3>Ayam Geprek</h3>
-                    <p class="harga">Rp 15.000</p>
-                    <label>Jumlah</label>
+                    <p>Rp 15.000</p>
                     <input type="number" id="ayamGeprek" min="0" value="0">
                 </div>
 
                 <div class="menu-card">
-                    <div class="icon">🥤</div>
+                    <div class="emoji">🥤</div>
                     <h3>Es Teh</h3>
-                    <p class="harga">Rp 4.000</p>
-                    <label>Jumlah</label>
+                    <p>Rp 4.000</p>
                     <input type="number" id="esTeh" min="0" value="0">
                 </div>
 
                 <div class="menu-card">
-                    <div class="icon">🍊</div>
+                    <div class="emoji">🍊</div>
                     <h3>Es Jeruk</h3>
-                    <p class="harga">Rp 5.000</p>
-                    <label>Jumlah</label>
+                    <p>Rp 5.000</p>
                     <input type="number" id="esJeruk" min="0" value="0">
                 </div>
 
                 <div class="menu-card">
-                    <div class="icon">💧</div>
+                    <div class="emoji">💧</div>
                     <h3>Air Mineral</h3>
-                    <p class="harga">Rp 3.000</p>
-                    <label>Jumlah</label>
+                    <p>Rp 3.000</p>
                     <input type="number" id="airMineral" min="0" value="0">
                 </div>
 
@@ -82,47 +69,34 @@
         </section>
 
 
-        <!-- KASIR -->
-        <section class="kasir-section">
+        <!-- TRANSAKSI -->
+        <section class="transaksi-section">
 
-            <div class="section-title">
-                <h2>🛒 Detail Transaksi</h2>
-                <p>Periksa pesanan dan lakukan pembayaran</p>
-            </div>
+            <h2>🛒 DETAIL TRANSAKSI</h2>
 
             <div class="detail">
-                <span>Subtotal</span>
-                <span id="subtotal">Rp 0</span>
+                <span>Total Belanja</span>
+                <strong id="total">Rp 0</strong>
             </div>
 
-            <div class="detail total">
-                <span>Total Pembayaran</span>
-                <span id="total">Rp 0</span>
+            <div class="input-box">
+                <label>💵 Uang Pembayaran</label>
+                <input type="number" id="uangBayar" placeholder="Masukkan uang">
             </div>
 
-            <div class="input-group">
-                <label for="uangBayar">💵 Uang Pembayaran</label>
-                <input
-                    type="number"
-                    id="uangBayar"
-                    placeholder="Contoh: 50000"
-                    min="0"
-                >
-            </div>
-
-            <button class="btn-hitung" onclick="hitungTransaksi()">
+            <button onclick="hitungPembayaran()">
                 HITUNG PEMBAYARAN
             </button>
 
-            <div id="pesan"></div>
+            <p id="pesan"></p>
 
-            <div class="detail kembalian-box">
+            <div class="detail kembalian">
                 <span>💰 Kembalian</span>
-                <span id="kembalian">Rp 0</span>
+                <strong id="kembalian">Rp 0</strong>
             </div>
 
-            <button class="btn-reset" onclick="resetTransaksi()">
-                ↻ RESET TRANSAKSI
+            <button class="reset" onclick="resetTransaksi()">
+                ↻ RESET
             </button>
 
         </section>
@@ -131,32 +105,39 @@
         <!-- STRUK -->
         <section class="struk-section">
 
-            <div class="section-title">
-                <h2>🧾 Struk Transaksi</h2>
-                <p>Bukti pembayaran pelanggan</p>
-            </div>
+            <h2>🧾 STRUK TRANSAKSI</h2>
 
             <div class="struk" id="struk">
 
-                <p class="struk-title">KANTIN MERDEKA</p>
-                <p class="center">Kantin Sekolah Indonesia</p>
-                <p class="center" id="tanggal"></p>
-
+                <h3>KANTIN MERDEKA</h3>
+                <p>Kantin Sekolah</p>
                 <hr>
 
                 <div id="isiStruk">
-                    <p class="center">Belum ada transaksi.</p>
+                    Belum ada transaksi
                 </div>
 
                 <hr>
 
-                <p class="center">Terima Kasih 🙏</p>
-                <p class="center">Selamat Menikmati!</p>
+                <p>Terima Kasih 🙏</p>
+                <p>Selamat Menikmati!</p>
 
             </div>
 
-            <button class="btn-cetak" onclick="cetakStruk()">
+            <button class="cetak" onclick="cetakStruk()">
                 🖨️ CETAK STRUK
             </button>
 
-        </
+        </section>
+
+    </div>
+
+
+    <footer>
+        © 2026 KANTIN MERDEKA
+    </footer>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
